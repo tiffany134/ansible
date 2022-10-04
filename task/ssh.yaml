@@ -1,7 +1,7 @@
 ---
 - name: generate ssh
   vars_files:
-    - role/files/info.json
+    - ../vars/info.json
   hosts: "{{ hostname }}"
   tasks: 
     - name: SSH keygen command

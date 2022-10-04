@@ -1,7 +1,7 @@
 ---
 - name: set bastion hostname&firewalld&selinux
   vars_files:
-    - vars/info.yaml
+    - ../vars/info.json
   hosts: "{{ hostname }}"
   tasks:
   - name: set-hostname
