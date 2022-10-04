@@ -15,7 +15,7 @@
       insertafter: '###OpenShift setting　'
   - name: add haproxy
     template:
-      src: role/template/haproxy_cfg.j2
+      src: ../template/haproxy_cfg.j2
       dest: /etc/haproxy/haproxy.cfg
   - name: start & enable haproxy
     service:
