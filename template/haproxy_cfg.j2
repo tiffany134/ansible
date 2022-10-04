@@ -7,7 +7,7 @@ frontend openshift-api-server
 backend openshift-api-server
     balance source
     mode tcp
-    server bootstrap{{ bootstrap_ip }}:6443 check
+    server bootstrap   {{ bootstrap_ip }}:6443 check
     server master0	{{ m1_ip }}:6443 check
     server master1	{{ m2_ip }}:6443 check
     server master2	{{ m3_ip }}:6443 check
