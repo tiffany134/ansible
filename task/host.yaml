@@ -2,6 +2,7 @@
 - name: set bastion hostname&firewalld&selinux
   vars_files:
     - vars/info.yaml
+  hosts: "{{ hostname }}"
   tasks:
   - name: set-hostname
     shell: hostnamectl set-hostname bastion.ocp.{{ name }}.com > /etc/hostname
