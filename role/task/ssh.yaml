@@ -1,0 +1,14 @@
+---
+- name: generate ssh
+  vars_files:
+    - role/files/info.json
+  hosts: "{{ hostname }}"
+  tasks: 
+    - name: SSH keygen command
+      shell: >
+        ssh-keygen -t rsa -b 4096 -N "" -C "create SSH" -f ~/.ssh/id_rsa
+        creates="~/.ssh/id_rsa"
+    - name: Enable ssh agent & add key 
+      shell: | 
+        eval "$(ssh-agent -s)"
+        ssh-add ~/.ssh/id_rsa
