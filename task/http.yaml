@@ -1,0 +1,32 @@
+---
+- name: set http
+  vars_files:
+    - role/files/info.json
+  hosts: "{{ hostname }}"
+  tasks:
+  - name: latest httpd install
+    yum:
+      name: httpd
+      state: latest
+  - name: change httpd.conf
+    lineinfile:
+      path: /etc/httpd/conf/httpd.conf
+      regexp: Listen 80
+      line: 'Listen 8080'
+  - name: start & enable httpd
+    service:
+      name: httpd
+      state: started
+      enabled: yes
+  - name: restart & enable httpd
+    service:
+      name: httpd
+      state: restarted
+      enabled: yes
+  - name: check  httpd status
+    command: systemctl status httpd
+    register: result
+    ignore_errors: yes
+  - name: show reoport
+    debug:
+      var: result

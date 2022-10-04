@@ -1,0 +1,38 @@
+listen-address=127.0.0.1,{{ dnsip }}
+domain=ocp.{{ name }}.com,{{ domaim_ip }}/24,local
+server=192.168.101.1
+server=192.168.101.2
+host-record=bastion.ocp.{{ name }}.com,{{ bastion_ip }}
+host-record=bootstrap.ocp.{{ name }}.com,{{ bootstrap_ip }}
+host-record=master0.ocp.{{ name }}.com,{{ m1_ip }}
+host-record=master1.ocp.{{ name }}.com,{{ m2_ip }}
+host-record=master2.ocp.{{ name }}.com,{{ m3_ip }}
+host-record=compute0.ocp.{{ name }}.com,{{ w1_ip }}
+host-record=compute1.ocp.{{ name }}.com,{{ w2_ip }}
+### 
+host-record=api.ocp.{{ name }}.com,{{ bastion_ip }}
+host-record=api-int.ocp.{{ name }}.com,{{ bastion_ip }}
+
+host-record=etcd-0.ocp.{{ name }}.com,{{ m1_ip }}
+host-record=etcd-1.ocp.{{ name }}.com,{{ m2_ip }}
+host-record=etcd-2.ocp.{{ name }}.com,{{ m3_ip }}
+srv-host=_etcd-server-ssl._tcp.ocp.{{ name }}.com,etcd-0.ocp.{{ name }}.com,2380,0,10
+srv-host=_etcd-server-ssl._tcp.ocp.{{ name }}.com,etcd-1.ocp.{{ name }}.com,2380,0,10
+srv-host=_etcd-server-ssl._tcp.ocp.{{ name }}.com,etcd-2.ocp.{{ name }}.com,2380,0,10
+###
+
+
+address=/apps.ocp.{{ name }}.com/{{ bastion_ip }}
+address=/.apps.ocp.{{ name }}.com/{{ bastion_ip }}
+address=/api.ocp.{{ name }}.com/{{ bastion_ip }}
+address=/api-int.ocp.{{ name }}.com/{{ bastion_ip }}
+address=/bastion.ocp.{{ name }}.com/{{ bastion_ip }}
+address=/bootstrap.ocp.{{ name }}.com/{{ bootstrap_ip }}
+address=/master0.ocp.{{ name }}.com/{{ m1_ip }}
+address=/master1.ocp.{{ name }}.com/{{ m2_ip }}
+address=/master2.ocp.{{ name }}.com/{{ m3_ip }}
+address=/etcd-0.ocp.{{ name }}.com/{{ m1_ip }}
+address=/etcd-1.ocp.{{ name }}.com/{{ m2_ip }}
+address=/etcd-2.ocp.{{ name }}.com/{{ m3_ip }}
+address=/compute0.ocp.{{ name }}.com/{{ w1_ip }}
+address=/compute1.ocp.{{ name }}.com/{{ w2_ip }}
