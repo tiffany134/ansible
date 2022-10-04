@@ -14,7 +14,7 @@
     command: chmod 755 /etc/dnsmasq.d/dns.conf
   - name: set conf file 
     template: 
-      src: role/template/dns_conf.j2
+      src: ../template/dns_conf.j2
       dest: /etc/dnsmasq.d/dns.conf
   - name: start & enable dnsmasq
     service:
