@@ -1,7 +1,7 @@
 ---
 - name: Change password on initial login
   vars_files:
-    - ./change_test/passwd.yaml
+    - ../change_test/passwd.yaml
   delegate_to: "{{ host_ip }}"
   become: no
   expect:
