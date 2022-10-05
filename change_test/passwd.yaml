@@ -1,0 +1,15 @@
+- name: Change password on initial login
+  vars_files:
+    - ./change_test/passwd.yaml
+  delegate_to: "{{ host_ip }}"
+  become: no
+  expect:
+    command: ssh {{ ansible_ssh_common_args }} {{ user_expert }}@{{ host_ip  }}
+    timeout: 20
+    responses:
+      Password: "{{ user_expert_password }}"
+      UNIX password: "{{ user_expert_password }}"
+      New password: "{{ user_expert_password_new }}"
+      new password:  "{{ user_expert_password_new }}"
+      "\\~\\]\\$": exit
+  register: status
