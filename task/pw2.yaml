@@ -8,12 +8,12 @@
   tasks:
     - name: "check if host is reachable"
       wait_for:
-      timeout: 0
+        timeout: 0
       register: connect_rs
       ignore_unreachable: yes
-
+    - when: connect_rs is unreachable 
     - name: "try first login and change the pw"
-      when: connect_rs is unreachable 
+      
       
       delegate_to: "{{ host_ip }}"
       expert:        
