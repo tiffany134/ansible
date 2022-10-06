@@ -9,7 +9,7 @@
     - name: "check if host is reachable"
       wait_for:
       timeout: 0
-      register: commect_rs
+      register: connect_rs
       ignore_unreachable: yes
 
     - when: connect_rs is unreachable 
