@@ -5,7 +5,6 @@
   hosts: "{{ hostname }}"
   gather_facts: false
   tasks:
-  become: no
   expect:
     command: sshpass -p {{ ansible_first_login_password }} ssh root@{{ host_ip }}
     timeout: 20
