@@ -1,5 +1,5 @@
 ---
-- name: Change password on initial login
+- name: hange pw on initial login
   vars_files:
     - ../vars/info.json
     - ../c_test/passwd.json
