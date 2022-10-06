@@ -1,7 +1,6 @@
 ---
 - name: change pw on initial login
   vars_files:
-    - ../vars/info.json
     - ../c_test/passwd.json
   hosts: "{{ hostname }}"
   gather_facts: false

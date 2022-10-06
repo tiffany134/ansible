@@ -4,6 +4,8 @@
     - ../vars/info.json
     - ../c_test/passwd.json
   hosts: "{{ hostname }}"
+  gather_facts: false
+  tasks:
   become: no
   expect:
     command: ssh {{ ansible_ssh_common_args }} {{ user_expert }}@{{ host_ip  }}
