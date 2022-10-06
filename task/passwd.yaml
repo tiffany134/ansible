@@ -1,7 +1,9 @@
 ---
-- name: Change password on initial login
+- name: change pw on initial login
   vars_files:
-    - ../change_test/passwd.json
+    - ../vars/info.json
+    - ../c_test/passwd.json
+  hosts: "{{ hostname }}"
   become: no
   expect:
     command: ssh {{ ansible_ssh_common_args }} {{ user_expert }}@{{ host_ip  }}
