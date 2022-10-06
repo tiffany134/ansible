@@ -1,19 +1,18 @@
 ---
 - name: change pw on initial login
   vars_files:
-    - ../vars/info.json
     - ../c_test/passwd.json
   hosts: "{{ hostname }}"
   gather_facts: false
   tasks:
   become: no
   expect:
-    command: ssh {{ ansible_ssh_common_args }} {{ user_expert }}@{{ host_ip  }}
+    command: sshpass -p {{ ansible_first_login_password }} ssh root@{{ host_ip }}
     timeout: 20
     responses:
-      Password: "{{ user_expert_password }}"
-      UNIX password: "{{ user_expert_password }}"
-      New password: "{{ user_expert_password_new }}"
-      new password:  "{{ user_expert_password_new }}"
+      Password: "{{ ansible_first_login_password }}"
+      UNIX password: "{{ ansible_first_login_password }}"
+      New password: "{{ ansible_password }}"
+      new password: "{{ ansible_password }}"
       "\\~\\]\\$": exit
   register: status
