@@ -15,7 +15,7 @@
     name: try first login and change the pw
     #delegate_to: "{{ host_ip }}"
     expect:        
-      command: sshpass -p {{ ansible_first_login_password }} ssh {{ansible_ssh_common_args }} root@{{ host_ip  }}
+      command: sshpass -p {{ ansible_first_login_password }} ssh {{ansible_ssh_common_args }} root@{{ host_ip }}
       timeout: 10
       responses:
         Password: "{{ ansible_first_login_password }}"
