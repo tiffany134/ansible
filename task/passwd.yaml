@@ -5,12 +5,6 @@
   hosts: "{{ hostname }}"
   gather_facts: false
   tasks:
-  - name: check if host is reachable
-    wait_for:
-      timeout: 0
-    register: connect_rs
-    ignore_unreachable: yes
-    when: unreachable | true
   - name: change passwd
     expect:
       command: ssh root@{{ host_ip }}
