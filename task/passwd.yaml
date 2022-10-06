@@ -5,13 +5,14 @@
   hosts: "{{ hostname }}"
   gather_facts: false
   tasks:
-  expect:
-    command: sshpass -p {{ ansible_first_login_password }} ssh root@{{ host_ip }}
-    timeout: 20
-    responses:
-      Password: "{{ ansible_first_login_password }}"
-      UNIX password: "{{ ansible_first_login_password }}"
-      New password: "{{ ansible_password }}"
-      new password: "{{ ansible_password }}"
-      "\\~\\]\\$": exit
-  register: status
+  - name: change passwd
+    expect:
+      command: sshpass -p {{ ansible_first_login_password }} ssh root@{{ host_ip }}
+      timeout: 20
+      responses:
+        Password: "{{ ansible_first_login_password }}"
+        UNIX password: "{{ ansible_first_login_password }}"
+        New password: "{{ ansible_password }}"
+        new password: "{{ ansible_password }}"
+        "\\~\\]\\$": exit
+    register: status
