@@ -1,8 +1,8 @@
 {
     "host_ip": "bastion",
-    "user_expert": "root",
-     "user_expert_password": "changeme",
-      " user_expert_password_new ": "Admin12345"
+   
+     "ansible_first_login_password": "changeme",
+      "ansible_password ": "Admin12345"
     
   }
   

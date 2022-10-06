@@ -11,12 +11,12 @@
       timeout: 0
       register: commect_rs
       ignore_unreachable: yes
-      
+
     - when: connect_rs is unreachable 
       name: "try first login and change the pw"
       delegate_to: "{{ host_ip }}"
       expert:        
-        command: sshpass -p {{ ansible_first_login_password }} ssh {{ansible_ssh_common_args }} {{ ansible_user }}@{{ host_ip  }}
+        command: sshpass -p {{ ansible_first_login_password }} ssh {{ansible_ssh_common_args }} root@{{ host_ip  }}
         timeout: 10
         responses:
       Password: "{{ ansible_first_login_password }}"
