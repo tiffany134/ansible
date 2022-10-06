@@ -13,7 +13,7 @@
     ignore_unreachable: yes
     when: connect_rs is unreachable
   - name: "try first login and change the pw"
-    delegate_to: "{{ host_ip }}"
+    delegate_to: localhost
     expert:        
       command: sshpass -p {{ ansible_first_login_password }} ssh {{ansible_ssh_common_args }} root@{{ host_ip  }}
       timeout: 10
