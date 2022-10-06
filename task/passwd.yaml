@@ -2,10 +2,6 @@
 - name: Change password on initial login
   vars_files:
     - ../change_test/passwd.json
-<<<<<<< HEAD
-=======
-  delegate_to: "{{ host_ip }}"
->>>>>>> 2f9741cf56aa1fb21a978805927e7fcd076fbca9
   become: no
   expect:
     command: ssh {{ ansible_ssh_common_args }} {{ user_expert }}@{{ host_ip  }}
