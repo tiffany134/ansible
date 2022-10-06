@@ -7,7 +7,7 @@
   tasks:
   - name: change passwd
     expect:
-      command: sshpass -p {{ ansible_first_login_password }} ssh root@{{ host_ip }}
+      command: ssh root@{{ host_ip }}
       timeout: 20
       responses:
         "Password:": "{{ ansible_first_login_password }}"
