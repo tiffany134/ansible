@@ -10,7 +10,7 @@
       timeout: 0
     register: connect_rs
     ignore_unreachable: yes
-    when: connect_rs is unreachable
+    when: connect_rs | unreachable
   - name: change passwd
     expect:
       command: ssh root@{{ host_ip }}
