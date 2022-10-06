@@ -1,6 +1,5 @@
 {
     "host_ip": "bastion",
-   
      "ansible_first_login_password": "changeme",
       "ansible_password ": "Admin12345"
     
