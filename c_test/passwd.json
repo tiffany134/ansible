@@ -1,7 +1,7 @@
 {  "hostname":"test2",
     "host_ip": "10.250.128.108",
      "ansible_first_login_password": "changeme",
-      "ansible_password ": "Admin12345"
+      "ansible_password": "Admin12345"
   }
   
   
