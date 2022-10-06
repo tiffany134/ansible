@@ -11,7 +11,6 @@
       timeout: 0
       register: connect_rs
       ignore_unreachable: yes
-
     - when: connect_rs is unreachable 
       name: "try first login and change the pw"
       delegate_to: "{{ host_ip }}"
@@ -19,9 +18,9 @@
         command: sshpass -p {{ ansible_first_login_password }} ssh {{ansible_ssh_common_args }} root@{{ host_ip  }}
         timeout: 10
         responses:
-      Password: "{{ ansible_first_login_password }}"
-      UNIX password: "{{ ansible_first_login_password }}"
-      New password: "{{ ansible_password }}"
-      new password: "{{ ansible_password }}"
+          Password: "{{ ansible_first_login_password }}"
+          UNIX password: "{{ ansible_first_login_password }}"
+          New password: "{{ ansible_password }}"
+          new password: "{{ ansible_password }}"
     - name: "Gather facts about host"
       setup:
