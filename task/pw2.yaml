@@ -1,9 +1,8 @@
 ---
 - name: change pw on initial login
   vars_files:
-    - ../vars/info.json
     - ../c_test/passwd.json
-  hosts: "{{ hostname }}"
+  delegate_to: "{{host_ip}}"
   become: no
   ansible.builtin.expect:
     command: ssh {{ ansible_ssh_common_args }} {{ user_expert }}@{{ host_ip  }}
