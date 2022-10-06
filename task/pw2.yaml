@@ -19,9 +19,9 @@
       command: sshpass -p {{ ansible_first_login_password }} ssh root@{{ host_ip }}
       timeout: 10
       responses:
-        password: "{{ ansible_first_login_password }}"
-        UNIX password: "{{ ansible_first_login_password }}"
-        New password: "{{ ansible_password }}"
-        new password: "{{ ansible_password }}"
+        "password:": "{{ ansible_first_login_password }}"
+        "UNIX password": "{{ ansible_first_login_password }}"
+        "New password": "{{ ansible_password }}"
+        "new password": "{{ ansible_password }}"
   - name: "Gather facts about host"
     setup:
