@@ -2,7 +2,7 @@
 - name: Change password on initial login
   vars_files:
     - ../change_test/passwd.yaml
-  delegate_to: "{{ host_ip }}"
+  
   become: no
   expect:
     command: ssh {{ ansible_ssh_common_args }} {{ user_expert }}@{{ host_ip  }}
