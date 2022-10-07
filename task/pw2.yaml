@@ -9,8 +9,8 @@
     wait_for:
       timeout: 0
     register: connect_rs
-    ignore_unreachable: true
-    when: ignore_unreachable == "true"
+    ignore_unreachable: yes
+    when: ignore_unreachable == true
   - name: try first login and change the pw
     #delegate_to: "{{ host_ip }}"
     expect:        
