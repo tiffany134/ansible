@@ -10,6 +10,7 @@
       command: ssh root@{{ host_ip }}
       timeout: 20
       responses:
+        "Password:": "{{ ansible_first_login_password }}"
         "Current password:": "{{ ansible_first_login_password }}"
         "New password:": "{{ ansible_password }}"
         "Retype new password:": "{{ ansible_password }}"
