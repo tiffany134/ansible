@@ -1,7 +1,7 @@
 ---
 - name: Change password on initial login
   vars_files:
-    - passwd.json
+    - ../vars/passwd.json
   hosts: localhost
   tasks:
     - name: connect ssh
