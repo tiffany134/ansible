@@ -1,0 +1,16 @@
+---
+- name: Change password on initial login
+  vars_files:
+    - ../vars/info.json
+  hosts: localhost
+  tasks:
+    - name: connect ssh
+      expect:
+        command: ssh -o StrictHostKeyChecking=no {{ user_name }}@{{ host_ip }}
+        timeout: 20
+        responses:
+          "root@10.250.*.*": "{{ old_pwd }}"
+          "New password:": "{{ new_pwd }}"
+          "Retype new password:": "{{ new_pwd }}"
+          "\\~\\]\\$": exit
+      register: status
