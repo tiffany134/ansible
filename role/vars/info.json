@@ -1,5 +1,6 @@
 {
-  "hostname": "test_a",
+  "hostname": "bastion",
+  "ansible_host" :  "localhost2",
   "name": "test",
    "dnsip": "10.250.128.108",
     "domaim_ip": "10.255.83.0",
