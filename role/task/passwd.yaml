@@ -2,7 +2,7 @@
 - name: Change password on initial login
   vars_files:
     - ../vars/info.json
-  hosts: localhost
+  hosts: localhost2
   tasks:
     - name: connect ssh
       expect:
