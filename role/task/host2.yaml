@@ -1,0 +1,26 @@
+---
+- name: set bastion hostname&firewalld&selinux
+  hosts: "{{ hostname }}"
+  tasks:
+  - name: set-hostname
+    shell: hostnamectl set-hostname bastion.ocp.{{ name }}.com > /etc/hostname
+  - name: install appstream
+    shell: |
+      sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+      sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+  - name: latest firewalld install
+    yum:
+      name: firewalld
+      state: latest
+  - name: stop disable firewalld
+    service:
+      name: firewalld
+      state: stopped
+      enabled: no
+  - name: closed selinux
+    shell: setenforce 0
+  - name: disable forerver in config
+    lineinfile:
+      path: /etc/selinux/config
+      regexp: SELINUX=enforcing
+      line: 'SELINUX=permissive'
