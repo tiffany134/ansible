@@ -1,7 +1,5 @@
 ---
 - name: set haproxy
-  vars_files:
-    - ../vars/info.json
   hosts: "{{ hostname }}"
   tasks:
   - name: latest haproxy install
