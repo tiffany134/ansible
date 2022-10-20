@@ -1,7 +1,5 @@
 ---
 - name: set http
-  vars_files:
-    - ../vars/info.json
   hosts: "{{ hostname }}"
   tasks:
   - name: latest httpd install
