@@ -1,7 +1,5 @@
 ---
 - name: set resolv
-  vars_files:
-    - ../vars/info.json
   hosts: "{{ hostname }}"
   tasks:
   - name: change resolv.conf
