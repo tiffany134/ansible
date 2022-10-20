@@ -1,0 +1,16 @@
+---
+- name: set bastion
+  vars_files:
+    - ../vars/info.json
+  hosts: "{{ hostname }}"
+  tasks:
+    - import_tasks: host.yaml
+    - import_tasks: dns.yaml
+    - import_tasks: haproxy.yaml
+    - import_tasks: http.yaml
+    - import_tasks: resolv.yaml
+    - import_tasks: ssh.yaml
+    - import_tasks: reboot.yaml
+
+  
+  
