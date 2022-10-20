@@ -1,13 +1,8 @@
 {
-<<<<<<< HEAD
-  "hostname": "",
+  "hostname": "test-ssh",
   "name": "online",
    "dnsip": "10.250.128.108",
-=======
-  "hostname": "bastion",
-  "name": "olg.online",
-   "dnsip": "10.250.133.102",
->>>>>>> ddc70a2bc2a31496f25b5105cbf60b172e86451b
+
     "domain_ip": "10.250.133.0",
     "bastion_ip": "10.250.133.102",
     "bootstrap_ip": "10.250.133.21",
