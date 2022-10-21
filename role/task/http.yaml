@@ -1,14 +1,7 @@
 ---
 - name: set http
-  vars_files:
-    - ../vars/info.json
   hosts: "{{ hostname }}"
   tasks:
-  - name: install appstrem
-    shell: | 
-      sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
-      sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
-
   - name: latest httpd install
     yum:
       name: httpd

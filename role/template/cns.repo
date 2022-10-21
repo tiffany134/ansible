@@ -1,0 +1,11 @@
+[BaseOS]
+name=CNS RHEL Repo Server - BaseOS
+baseurl=http://192.168.50.51/repos/8.6/rhel-8-for-x86_64-baseos-rpms
+gpgcheck=0
+enabled=1
+
+[AppStream]
+name=CNS RHEL Repo Server - AppStream
+baseurl=http://192.168.50.51/repos/8.6/rhel-8-for-x86_64-appstream-rpms/
+gpgcheck=0
+enabled=1

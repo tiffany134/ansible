@@ -1,0 +1,16 @@
+---
+- name:  yum repo
+  hosts: "{{ hostname }}"
+  tasks:
+  - name: remove centps repo file 
+    shell: |
+      cd /etc/yum.repos.d
+      rm -rf CentOS-AppStream.repo CentOS-Base.repo  CentOS-Extras.repo
+  - name: touch cns-repo
+    command: touch /etc/yum.repos.d/CentOS-CNS.repo
+  - name: add cns-repo
+    template: 
+      src: ../template/cns.repo
+      dest: /etc/yum.repos.d/CentOS-CNS.repo
+  - name: yum update
+    shell: yum -y install yum-utils

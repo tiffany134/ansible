@@ -1,7 +1,5 @@
 ---
 - name: reboot service
-  vars_files:
-    - ../vars/info.json
   hosts: "{{ hostname }}"
   tasks: 
    - name: reboot

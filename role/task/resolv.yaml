@@ -1,7 +1,5 @@
 ---
 - name: set resolv
-  vars_files:
-    - ../vars/info.json
   hosts: "{{ hostname }}"
   tasks:
   - name: change resolv.conf
@@ -13,6 +11,6 @@
     lineinfile:
       path: /etc/resolv.conf
       insertafter: 'search ocp.{{ name }}.com'
-      line: 'nameserver {{ dnsip }}'
+      line: 'nameserver {{ bastion_ip }}'
   - name: forbid change
     command: chattr +i /etc/resolv.conf
